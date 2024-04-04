@@ -1,0 +1,75 @@
+body {
+    font-family: 'chewy'; font-size: 25px;
+    background-image: url(paisaje4.jpg);
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    -webkit-text-stroke: 1px black;
+    font-size: 40px;
+    margin-top: -20px;
+    margin-bottom: -10px;
+}
+
+
+
+.contenido{
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+a{
+    text-decoration: none;
+    margin-bottom: 0;
+    -webkit-text-stroke: 2px black;
+
+}
+
+h1{
+    display: inline-block;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+input::before {
+    content: '';
+    position: absolute;
+    width: 48%;
+    height: 50%;
+    background-color: rgb(0, 17, 116); /* Color del cuadro detrás inclinado */
+    transform: rotate(-15deg);
+    transform-origin: bottom left;
+    z-index: -1;
+
+}
+
+
+input[type="text"], input[type="password"] {
+    width: 20%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 100px;
+    margin-left: 39%;
+}
+
+input[type="submit"] {
+    width: 10%;
+    padding: 10px;
+    background: linear-gradient(90deg,#f78907,#1c51ff);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 45%;
+    font-family: 'chewy'; font-size: 20px;
+}
+

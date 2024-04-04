@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="stylespruebas.css">
+    <link href='https://fonts.googleapis.com/css?family=Chewy' rel='stylesheet'>
+    <title>Prueba de ingles</title>
+</head>
+<body>
+    <div id="container">
+        <h1 style="color: #f78907;">Cues</h1><h1 style="color: #1947E4;">tionario</h1>
+        <form id="quizForm">
+            <p>Pregunta 1: ¿como se dice cocina en ingles?</p>
+            <input type="radio" name="q1" value="a"> a) cellphone<br>
+            <input type="radio" name="q1" value="b"> b) kitchen<br>
+            <input type="radio" name="q1" value="c"> c) glass<br>
+
+            <p>Pregunta 2: Traduce "apple" al español.</p>
+            <input type="radio" name="q2" value="a"> a) pera<br>
+            <input type="radio" name="q2" value="b"> b) banana<br>
+            <input type="radio" name="q2" value="c"> c) manzana<br>
+
+            <p>Pregunta 3: ¿Comó se dice gato en inglés?</p>
+            <input type="radio" name="q3" value="a"> a) cat<br>
+            <input type="radio" name="q3" value="b"> b) dog<br>
+            <input type="radio" name="q3" value="c"> c) duck<br>
+
+            <p>Pregunta 4: Traduce Yellow</p>
+            <input type="radio" name="q4" value="a"> a) verde<br>
+            <input type="radio" name="q4" value="b"> b) azul<br>
+            <input type="radio" name="q4" value="c"> c) amarillo<br>
+
+            <p>Pregunta 5: ¿Qué quiere decir "how are you"?</p>
+            <input type="radio" name="q5" value="a"> a) ¿Cómo te llamas?<br>
+            <input type="radio" name="q5" value="b"> b) ¿Dónde estas?<br>
+            <input type="radio" name="q5" value="c"> c) ¿Cómo estas?<br>
+
+            <input type="submit" value="Ver resultados">
+        </form>
+        <button id="resetButton" style="display: none; font-family: 'Chewy';">Reiniciar</button>
+        <button id="inicioButton" style="display: none; font-family: 'Chewy';">Inicio</button>
+        <div id="results" style="display: none;">
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe automáticamente.
+
+            // Desactiva los elementos de entrada y el botón de envío.
+            var inputs = document.querySelectorAll('input[type="radio"]');
+            inputs.forEach(function(input) {
+                input.disabled = true;
+            });
+            document.querySelector('input[type="submit"]').disabled = true;
+
+            // Aquí puedes verificar las respuestas y mostrar los resultados.
+            var respuestasCorrectas = 0;
+            var resultadosHTML = "<p>Resultados:</p>";
+            if (document.querySelector('input[name="q1"]:checked').value === "b") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 1: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 1: Incorrecta</p>";
+            }
+            if (document.querySelector('input[name="q2"]:checked').value === "c") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 2: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 2: Incorrecta</p>";
+            }
+            if (document.querySelector('input[name="q3"]:checked').value === "a") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 3: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 3: Incorrecta</p>";
+            }
+            if (document.querySelector('input[name="q4"]:checked').value === "c") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 4: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 4: Incorrecta</p>";
+            }
+            if (document.querySelector('input[name="q5"]:checked').value === "c") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 5: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 5: Incorrecta</p>";
+            }
+
+            // Muestra los resultados y el botón de reinicio.
+            var resultsContainer = document.getElementById("results");
+            resultsContainer.style.display = "block";
+            resultsContainer.innerHTML =  resultadosHTML;
+            var resetButton = document.getElementById("resetButton");
+            resetButton.style.display = "block";            
+            var inicioButton = document.getElementById("inicioButton");
+            inicioButton.style.display = "block";
+        });
+        document.getElementById("resetButton").addEventListener("click", function() {
+            // Restablece el formulario y habilita nuevamente los elementos de entrada y el botón de envío.
+            var inputs = document.querySelectorAll('input[type="radio"]');
+            inputs.forEach(function(input) {
+                input.disabled = false;
+                input.checked = false;
+            });
+            document.querySelector('input[type="submit"]').disabled = false;
+
+            // Oculta los resultados y el botón de reinicio.
+            var resultsContainer = document.getElementById("results");
+            resultsContainer.style.display = "none";
+            resultsContainer.innerHTML = "";
+            var resetButton = document.getElementById("resetButton");
+            resetButton.style.display = "none";
+        });
+        document.getElementById("inicioButton").addEventListener("click", function() {
+            window.location.href="inicio.html"
+        });
+    </script>
+</body>
+</html>

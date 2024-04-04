@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="stylesmate2.css">
+    <link href='https://fonts.googleapis.com/css?family=Chewy' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="container2">
+        <h1 style="color: #f78907;">MATE</h1>
+        <h1 style="color: #1c51ff;">MATICAS</h1>
+        </div>
+        <button onclick="irAPrueba()">Basicas</button>
+        <button onclick="irAPrueba2()">Avanzadas</button>
+        <br>
+        <button onclick="irAinicio()" id="button2"><img src="unnamed.png" width="30%" height="20%"></button>
+
+    </div>
+    
+    <script>
+        function irAPrueba() {
+            setTimeout (function(){
+                window.location.href="Teoriamate.html"
+            },700)
+        }
+        function irAPrueba2() {
+            setTimeout (function(){
+                window.location.href="Teoriam2.html"
+            },700)
+        }
+        function irAinicio() {
+            setTimeout (function(){
+                window.location.href="inicio.html"
+            },700)
+        }
+
+    </script>
+            <script type="text/javascript">
+                const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e){
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                this.appendChild(ripples);
+
+                setTimeout(() => {
+                    ripples.remove()
+                },1000);
+            })
+        })
+        </script>
+
+</body>
+</html>

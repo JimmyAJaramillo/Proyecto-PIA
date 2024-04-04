@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" type="text/css" href="stylesinicio.css">
+    <link href='https://fonts.googleapis.com/css?family=Chewy' rel='stylesheet'>
+</head>
+<body>
+    <div class="contenido">
+        <a href="index.html" style="color: #f78907;">TECNO</h1></a>
+        <a href="index.html" style="color: #1947E4;">ESCOLAR</h1></a>
+        
+    </div>
+
+    <div class="container">
+        <div class="contenido2">
+        <h1 style="color: #f78907;">Bien</h1>
+        <h1 style="color: #1947E4;">venido</h1>
+        </div>
+        <p>Por favor, selecciona la prueba que deseas realizar:</p>
+        <button onclick="irAPrueba()">Matemáticas</button>
+        <button onclick="irAPrueba2()">Inglés</button>
+    </div>
+    
+    <script>
+        function irAPrueba() {
+            setTimeout (function(){
+                window.location.href="mate2.html"
+            },700)
+        }
+        function irAPrueba2() {
+            setTimeout (function(){
+                window.location.href="ing2.html"
+            },700)
+        }
+    </script>
+            <script type="text/javascript">
+                const buttons = document.querySelectorAll('button');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e){
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                this.appendChild(ripples);
+
+                setTimeout(() => {
+                    ripples.remove()
+                },1000);
+            })
+        })
+        </script>
+
+</body>
+</html>

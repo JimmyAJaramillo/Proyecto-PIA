@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="stylespruebas.css">
+    <link href='https://fonts.googleapis.com/css?family=Chewy' rel='stylesheet'>
+    <title>Prueba de ingles</title>
+</head>
+<body>
+    <div id="container">
+        <h1 style="color: #f78907;">Cues</h1><h1 style="color: #1947E4;">tionario</h1>
+        <form id="quizForm">
+            <p>Pregunta 1: Selecciona la opción que forma una palabra compuesta correcta:</p>
+            <input type="radio" name="q1" value="a"> a) Moonlight<br>
+            <input type="radio" name="q1" value="b"> b) Sunflower<br>
+            <input type="radio" name="q1" value="c"> c) Rainyday<br>
+            <input type="radio" name="q1" value="d"> d) Breakfast<br>
+
+            <p>Pregunta 2: Completa la siguiente oración con la forma correcta del verbo entre paréntesis:
+<br>
+                Yesterday, she _______ (go) to the park with her friends.</p>
+            <input type="radio" name="q2" value="a"> a) goed<br>
+            <input type="radio" name="q2" value="b"> b) gone<br>
+            <input type="radio" name="q2" value="c"> c) went<br>
+            <input type="radio" name="q2" value="d"> d) goeded<br>
+
+            <p>Pregunta 3: Selecciona la expresión idiomática que significa "decidir hacer algo sin dudar":</p>
+            <input type="radio" name="q3" value="a"> a) Kick the bucket<br>
+            <input type="radio" name="q3" value="b"> b) Jump on the bandwagon<br>
+            <input type="radio" name="q3" value="c"> c) Take the bull by the horns<br>
+            <input type="radio" name="q3" value="d"> d) Hit the hay<br>
+
+            <p>Pregunta 4: Completa la siguiente oración con la forma correcta del verbo entre paréntesis:
+<br>
+                I _______ (read) three books this month.</p>
+            <input type="radio" name="q4" value="a"> a) read<br>
+            <input type="radio" name="q4" value="b"> b) have read<br>
+            <input type="radio" name="q4" value="c"> c) reading<br>
+            <input type="radio" name="q2" value="d"> d) reads<br>
+
+            <p>Pregunta 5: Selecciona la opción que forma una palabra compuesta correcta:</p>
+            <input type="radio" name="q5" value="a"> a) Watermelon<br>
+            <input type="radio" name="q5" value="b"> b) Skyscraper<br>
+            <input type="radio" name="q5" value="c"> c) Buttercup<br>
+            <input type="radio" name="q2" value="d"> d) Mountainous<br>
+
+            <input type="submit" value="Ver resultados">
+        </form>
+        <button id="resetButton" style="display: none;">Reiniciar</button>
+        <button id="inicioButton" style="display: none;">Inicio</button>
+        <div id="results" style="display: none;">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe automáticamente.
+
+            // Desactiva los elementos de entrada y el botón de envío.
+            var inputs = document.querySelectorAll('input[type="radio"]');
+            inputs.forEach(function(input) {
+                input.disabled = true;
+            });
+            document.querySelector('input[type="submit"]').disabled = true;
+
+            // Aquí puedes verificar las respuestas y mostrar los resultados.
+            var respuestasCorrectas = 0;
+            var resultadosHTML = "";
+            if (document.querySelector('input[name="q1"]:checked').value === "b") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 1: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 1: Incorrecta</p>";
+            }
+            if (document.querySelector('input[name="q2"]:checked').value === "c") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 2: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 2: Incorrecta</p>";
+            }
+            if (document.querySelector('input[name="q3"]:checked').value === "c") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 3: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 3: Incorrecta</p>";
+            }
+            if (document.querySelector('input[name="q4"]:checked').value === "b") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 4: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 4: Incorrecta</p>";
+            }
+            if (document.querySelector('input[name="q5"]:checked').value === "c") {
+                respuestasCorrectas++;
+                resultadosHTML += "<p>Pregunta 5: Correcta</p>";
+            } else {
+                resultadosHTML += "<p>Pregunta 5: Incorrecta</p>";
+            }
+
+
+            // Muestra los resultados y el botón de reinicio.
+            var resultsContainer = document.getElementById("results");
+            resultsContainer.style.display = "block";
+            resultsContainer.innerHTML = resultadosHTML;
+            var resetButton = document.getElementById("resetButton");
+            resetButton.style.display = "block";            
+            var inicioButton = document.getElementById("inicioButton");
+            inicioButton.style.display = "block";
+        });
+        document.getElementById("resetButton").addEventListener("click", function() {
+            // Restablece el formulario y habilita nuevamente los elementos de entrada y el botón de envío.
+            var inputs = document.querySelectorAll('input[type="radio"]');
+            inputs.forEach(function(input) {
+                input.disabled = false;
+                input.checked = false;
+            });
+            document.querySelector('input[type="submit"]').disabled = false;
+
+            // Oculta los resultados y el botón de reinicio.
+            var resultsContainer = document.getElementById("results");
+            resultsContainer.style.display = "none";
+            resultsContainer.innerHTML = "";
+            var resetButton = document.getElementById("resetButton");
+            resetButton.style.display = "none";
+        });
+        document.getElementById("inicioButton").addEventListener("click", function() {
+            window.location.href="inicio.html"
+        });
+    </script>
+</body>
+</html>
